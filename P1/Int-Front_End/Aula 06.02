@@ -31,7 +31,7 @@
      <h1>FORMULARIO:</h1>
      <form autocomplete='on' action="" method="get">
      <label for="nomeCompleto">Nome:</label>      
-     <input type="text" name="nomeCompleto" placeholder="Digite seu nome completo" maxlength="10"><br><br>
+     <input type="text" name="nomeCompleto" placeholder="Digite seu nome completo" maxlength="20"><br><br>
           
       Email: <input type="email" name="Email" required placeholder="Digite seu email"><br><br>
       <hr>
