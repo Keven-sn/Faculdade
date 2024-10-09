@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Fantasma</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .product-item {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 15px;
+            width: calc(33% - 20px);
+            text-align: center;
+        }
+        .product-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .form-container {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 768px) {
+            .product-item {
+                width: calc(50% - 20px);
+            }
+        }
+        @media (max-width: 480px) {
+            .product-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Loja Fantasma</h1>
+        <p>Bem-vindo à Loja Fantasma! Aqui você encontra uma seleção incrível de produtos de informática, desde computadores até acessórios, com preços que vão te surpreender.</p>
+
+        <div class="product-list">
+            <div class="product-item">
+                <img src="Notebook.jpg" alt="Notebook Fantástico">
+                <h3>Notebook Fantástico</h3>
+                <p>Um notebook com processador i7, 16GB de RAM e 512GB de SSD, ideal para gamers e profissionais.</p>
+            </div>
+            <div class="product-item">
+                <img src="Monitor.webp" alt="Monitor Ultra HD">
+                <h3>Monitor Ultra HD</h3>
+                <p>Monitor de 27 polegadas com resolução 4K e cores vibrantes, perfeito para edição de fotos e vídeos.</p>
+            </div>
+            <div class="product-item">
+                <img src="teclado.png" alt="Teclado Mecânico RGB">
+                <h3>Teclado Mecânico RGB</h3>
+                <p>Teclado mecânico com retroiluminação RGB, ideal para uma experiência de digitação imersiva.</p>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <h2>Pesquisa de Produtos</h2>
+            <form action="Prova 02.html" method="GET">
+                <label for="search">Nome do produto:</label>
+                <input type="text" id="search" name="search" placeholder="Digite o nome do produto" required><br><br>
+
+                <label>Categoria:</label><br>
+                <input type="checkbox" id="notebooks" name="category" value="Notebooks">
+                <label for="notebooks">Notebooks</label><br>
+                <input type="checkbox" id="monitores" name="category" value="Monitores">
+                <label for="monitores">Monitores</label><br>
+                <input type="checkbox" id="acessorios" name="category" value="Acessórios">
+                <label for="acessorios">Acessórios</label><br><br>
+
+                <label for="price-range">Faixa de preço:</label>
+                <input type="number" id="min-price" name="min-price" placeholder="Mínimo" step="0.01"> a 
+                <input type="number" id="max-price" name="max-price" placeholder="Máximo" step="0.01"><br><br>
+
+                <button type="submit">Pesquisar</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
