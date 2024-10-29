@@ -10,7 +10,7 @@ while opcao != 0:
 
     if opcao == 1:
         print("\n ====> ADICIONAR ITEM <====\n ")
-        novo_item = int(input('Digite o novo item desejado:'))
+        novo_item = (input('Digite o novo item desejado:'))
         lista_de_compras = lista_de_compras + [novo_item]
 
     elif opcao == 2:
