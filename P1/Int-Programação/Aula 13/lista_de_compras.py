@@ -45,6 +45,4 @@ while opcao != 0:
     elif opcao == 3:
         print("\n ====> LISTA COMPLETA <====\n ")
 
-        for i in range(len(lista_de_compras)):
-            print(f'{i+1} - {lista_de_compras}')
-            exibir_lista(lista_de_compras=lista_de_compras)
+        exibir_lista(lista_de_compras=lista_de_compras)
