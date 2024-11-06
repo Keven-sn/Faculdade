@@ -1,25 +1,89 @@
-*{
+/* Reset de estilos básicos */
+* {
     margin: 0;
     padding: 0;
-}
-body{
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Estilos globais */
+  body {
+    background-color: #f0f0f0;
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-family: Arial, sans-serif;
-    background-color: black}
-.card{
-    width: 300px;
-    padding: 29px;
-    border-radius: 50%;
-    background-color: aliceblue;
-    box-shadow: 0 4px 8px rgb(rgb(139, 0, 134), green, blue);
+    padding: 20px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    color: #333;
     text-align: center;
-
-}
-h2{ color: rgb(205, 0, 154);}
-p{color: rgb(205, 0, 154)}
-.img-1{
+    margin-top: 15px;
+  }
+  
+  p {
+    font-size: 16px;
+    color: #666;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo do Card */
+  .card {
+    background-color: white;
+    border-radius: 10px;
+    width: 300px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .card img {
     border-radius: 50%;
-}
-
+    object-fit: cover;
+    border: 3px solid #4CAF50;
+  }
+  
+  /* Estilos do botão */
+  .card_seguir_btn {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .card_seguir_btn:hover {
+    background-color: #45a049;
+  }
+  
+  /* Responsividade para telas menores */
+  @media (max-width: 600px) {
+    .card {
+      width: 80%;
+    }
+  
+    .card img {
+      width: 150px;
+      height: 150px;
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+  
+    p {
+      font-size: 14px;
+    }
+  
+    .card_seguir_btn {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
+  
