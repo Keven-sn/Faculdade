@@ -8,7 +8,7 @@
   
   /* Estilos globais */
   body {
-    background-color: #f0f0f0;
+    background-color: #000000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +18,7 @@
   
   h2 {
     font-size: 24px;
-    color: #333;
+    color: #000000;
     text-align: center;
     margin-top: 15px;
   }
@@ -36,19 +36,19 @@
     border-radius: 10px;
     width: 300px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 12px 8px 16px #ff00bf;
     text-align: center;
   }
   
   .card img {
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #4CAF50;
+    border: 3px solid #ff00bf;
   }
   
   /* Estilos do botão */
   .card_seguir_btn {
-    background-color: #4CAF50;
+    background-color: #000000;
     color: white;
     font-size: 16px;
     padding: 10px 20px;
@@ -59,7 +59,8 @@
   }
   
   .card_seguir_btn:hover {
-    background-color: #45a049;
+    background-color: #ff00bf;
+    color: #000000;
   }
   
   /* Responsividade para telas menores */
