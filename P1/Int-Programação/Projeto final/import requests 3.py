@@ -5,7 +5,7 @@ from loguru import logger
 try:
     for i in range(5):
 
-        result= requests.get('https://api.adviceslip.com/advice')
+        result = requests.get('https://api.adviceslip.com/advice')
 
         print(result.json())
         print(result.json()['slip'])
@@ -14,7 +14,7 @@ try:
 
         texto = f'{result.json()['slip']['id']}-{result.json()['slip']['advice']}'
 
-        with open('conselho.txt'), 'a', encoding ='UTF-8' as arquivo:
+        with open('conselho.txt'), 'a', 'encoding''UTF-8' as arquivo:
             arquivo.write(texto + "\n")
 
 
