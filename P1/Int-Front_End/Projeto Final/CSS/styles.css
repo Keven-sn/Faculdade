@@ -217,3 +217,28 @@ footer {
         max-width: 900px;
     }
 }
+
+/* Adicionando melhorias para a responsividade nos dispositivos móveis */
+@media screen and (max-width: 375px) {
+    header h1 {
+        font-size: 1.4em; /* Tamanho menor do título em dispositivos muito pequenos */
+    }
+
+    .btn-loja, .btn-loja-top {
+        padding: 8px 16px;
+        font-size: 0.85em; /* Botões menores */
+    }
+
+    .dinossauros h3 {
+        font-size: 1.4em;
+    }
+
+    section {
+        margin: 5px;
+        padding: 10px;
+    }
+
+    footer {
+        font-size: 11px;
+    }
+}

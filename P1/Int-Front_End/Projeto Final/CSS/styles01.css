@@ -173,6 +173,16 @@ footer p {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+/* Ajustes no tamanho do botão Home para telas menores */
+@media screen and (max-width: 768px) {
+    .home-btn {
+        padding: 8px 16px; /* Menor padding */
+        font-size: 14px; /* Tamanho da fonte reduzido */
+        top: 15px; /* Ajuste da posição superior */
+        left: 15px; /* Ajuste da posição à esquerda */
+    }
+}
+
 .home-btn:hover {
     background-color: #45a049;
     transform: scale(1.05);
