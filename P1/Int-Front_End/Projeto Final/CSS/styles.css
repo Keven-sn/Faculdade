@@ -1,0 +1,219 @@
+/* Reset básico de margens, preenchimentos e box-sizing */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7; /* Cor de fundo suave */
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding-bottom: 60px;  /* Espaço extra para o rodapé fixo */
+}
+
+/* Estilo do cabeçalho */
+header {
+    background-color: #003d03; /* Cor de fundo escura */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header .logo h1 {
+    font-size: 2.8em;
+    margin: 0;
+    font-weight: 700; /* Título em negrito */
+}
+
+/* Estilo das seções principais */
+section {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ebebeb; /* Cor de fundo suave para seções */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+}
+
+h2 {
+    color: #003d03;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* Estilo da lista */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    margin: 10px 0;
+}
+
+/* Estilo dos artigos de dinossauros */
+.dinossauros article {
+    margin: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dinossauros img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 20px auto;
+}
+
+.dinossauros h3 {
+    text-align: center;
+    font-size: 1.6em;
+    margin-top: 10px;
+}
+
+.dinossauros p {
+    font-size: 1rem;
+    text-align: justify;
+}
+
+/* Estilo dos botões */
+.btn-loja, .btn-loja-top {
+    padding: 12px 25px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-sizing: border-box;
+    margin-top: 20px;
+    width: 100%; /* Torna o botão responsivo */
+}
+
+/* Estilo do botão no canto superior direito */
+.btn-loja-top {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #003d03;
+    width: auto; /* Ajuste o tamanho para que o botão não ocupe toda a largura */
+    padding: 12px 20px; /* Ajuste do padding para garantir um tamanho razoável */
+}
+
+/* Efeito de hover nos botões */
+.btn-loja:hover, .btn-loja-top:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Estilo do rodapé */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsividade para telas menores */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 15px;
+    }
+
+    section {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+
+    .dinossauros img {
+        max-width: 100%;
+        margin: 15px auto;
+    }
+
+    footer {
+        font-size: 14px;
+    }
+
+    .btn-loja, .btn-loja-top {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+}
+
+/* Responsividade para telas muito pequenas */
+@media screen and (max-width: 480px) {
+    header {
+        padding: 10px;
+    }
+
+    section {
+        margin: 5px;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.6em;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    footer {
+        font-size: 12px;
+    }
+
+    .btn-loja, .btn-loja-top {
+        padding: 8px 18px;
+        font-size: 0.9em;
+    }
+}
+
+/* Estilo para telas grandes */
+@media screen and (min-width: 1024px) {
+    body {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    header {
+        padding: 30px;
+    }
+
+    section {
+        margin: 40px;
+        padding: 25px;
+    }
+
+    footer {
+        font-size: 16px;
+    }
+
+    .dinossauros img {
+        max-width: 900px;
+    }
+}

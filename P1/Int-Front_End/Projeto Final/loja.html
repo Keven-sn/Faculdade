@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DinoPlace Loja</title>
+    <link rel="stylesheet" href="CSS/styles01.css">
+</head>
+<body>
+    <header>
+        <!-- Botão Home no canto superior esquerdo -->
+        <button class="home-btn" onclick="window.location.href='index.html'">Home</button>
+
+        <div class="logo">
+            <h1>Loja de Dinossauros</h1>
+        </div>
+    </header>
+
+    <section class="produtos">
+        <h2>Produtos</h2>
+
+        <div class="produto">
+            <img src="IMG/camiseta.png" alt="Camiseta Rex">
+            <h3>Camiseta Rex</h3>
+            <p>Transforme seu estilo com a Camiseta Dino Style! Com um design exclusivo e divertido, ela traz a energia dos dinossauros para o seu dia a dia. Feita em tecido 100% algodão, proporciona conforto e durabilidade, ideal para quem busca unir moda e personalidade.</p>
+            <p class="preco">R$ 59,90</p>
+            <button onclick="showLoginForm()">Comprar</button>
+        </div>
+
+        <div class="produto">
+            <img src="IMG/bone.png" alt="Bone Jurássico">
+            <h3>Bone Jurássico</h3>
+            <p>Adicione um toque jurássico ao seu visual com o Boné Dino Style! Com um design inspirado no Jurassic Park, ele é perfeito para quem ama aventuras e quer se destacar com personalidade. Feito com materiais de alta qualidade, combina conforto, estilo e durabilidade.</p>
+            <p class="preco">R$ 79,90</p>
+            <button onclick="showLoginForm()">Comprar</button>
+        </div>
+
+        <div class="produto">
+            <img src="IMG/chaveiro.png" alt="Chaveiro Dino">
+            <h3>Chaveiro Dino</h3>
+            <p>Adicione uma dose de diversão e nostalgia ao seu dia com o Chaveiro Dino Style! Com um design criativo e detalhado, este acessório é perfeito para os fãs de dinossauros e amantes de itens únicos. Ideal para organizar suas chaves ou decorar bolsas e mochilas com muito estilo.</p>
+            <p class="preco">R$ 29,90</p>
+            <button onclick="showLoginForm()">Comprar</button>
+        </div>
+
+        <div class="produto">
+            <img src="IMG/Mochila.png" alt="Mochila Dino">
+            <h3>Mochila Dino</h3>
+            <p>Prepare-se para explorar com a Mochila Dino Style! Inspirada no fascinante mundo dos dinossauros, esta mochila combina design divertido com funcionalidade prática, ideal para todas as idades. Seja para a escola, trabalho ou passeios, ela é perfeita para levar tudo o que você precisa com muita personalidade.</p>
+            <p class="preco">R$ 149,90</p>
+            <button onclick="showLoginForm()">Comprar</button>
+        </div>
+    </section>
+
+    <!-- Caixa de Login -->
+    <div class="login-container" id="loginContainer" style="display:none;">
+        <h3>Login</h3>
+        <input type="text" id="username" placeholder="Nome de usuário">
+        <input type="password" id="password" placeholder="Senha">
+        <button onclick="login()">Confirmar</button>
+        
+        <!-- Botão de voltar -->
+        <button onclick="window.location.href='loja.html'">Voltar</button>
+    </div>
+
+    <!-- Caixa de pagamento -->
+    <div class="payment-container" id="paymentContainer" style="display:none;">
+        <h3>Escolha o método de pagamento</h3>
+        <select id="paymentMethod">
+            <option value="cartao">Cartão de Crédito</option>
+            <option value="pix">PIX</option>
+        </select>
+        <div id="cartaoFields" style="display:none;">
+            <input type="text" id="cardNumber" placeholder="Número do Cartão">
+            <input type="text" id="cardName" placeholder="Nome no Cartão">
+            <input type="text" id="cardExpiry" placeholder="Validade (MM/AA)">
+            <input type="text" id="cardCVV" placeholder="CVV">
+        </div>
+        <div id="pixFields" style="display:none;">
+            <p>Faça o pagamento via PIX com o código abaixo:</p>
+            <p><strong>4002 8922 8080 0007</strong></p>
+        </div>
+
+        <button onclick="finalizePayment()">Finalizar pagamento</button>
+        <!-- Botão de voltar que retorna para a tela de login -->
+        <button onclick="goBackToLogin()">Voltar</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Loja de Dinossauros - Equipe 007 </p>
+    </footer>
+
+    <script>
+        // Função para exibir a caixa de login
+        function showLoginForm() {
+            document.getElementById("loginContainer").style.display = "block";
+            document.getElementById("paymentContainer").style.display = "none"; // Esconde a tela de pagamento
+        }
+
+        // Função para login (não valida nada, apenas esconde o login e exibe a opção de pagamento)
+        function login() {
+            document.getElementById("loginContainer").style.display = "none";
+            document.getElementById("paymentContainer").style.display = "block"; // Exibe a tela de pagamento
+        }
+
+        // Função para finalização do pagamento
+        function finalizePayment() {
+            const paymentMethod = document.getElementById("paymentMethod").value;
+
+            if (paymentMethod === "cartao") {
+                const cardNumber = document.getElementById("cardNumber").value;
+                const cardName = document.getElementById("cardName").value;
+                const cardExpiry = document.getElementById("cardExpiry").value;
+                const cardCVV = document.getElementById("cardCVV").value;
+
+                // Exibir mensagem simulando sucesso
+                alert(`Pagamento com cartão de crédito realizado com sucesso! Número do Cartão: ${cardNumber}`);
+            } else if (paymentMethod === "pix") {
+                // Exibir mensagem simulando pagamento por PIX
+                alert("Pagamento via PIX realizado com sucesso! Código: 1234 5678 9101 1121");
+            }
+
+            // Após o pagamento, esconder a caixa de pagamento
+            document.getElementById("paymentContainer").style.display = "none";
+        }
+
+        // Função para voltar para a tela de login
+        function goBackToLogin() {
+            document.getElementById("paymentContainer").style.display = "none"; // Esconde a tela de pagamento
+            document.getElementById("loginContainer").style.display = "block"; // Exibe a tela de login
+        }
+
+        // Função para mostrar os campos de pagamento de acordo com a opção escolhida
+        document.getElementById("paymentMethod").addEventListener("change", function() {
+            const paymentMethod = this.value;
+
+            if (paymentMethod === "cartao") {
+                document.getElementById("cartaoFields").style.display = "block";
+                document.getElementById("pixFields").style.display = "none";
+            } else {
+                document.getElementById("cartaoFields").style.display = "none";
+                document.getElementById("pixFields").style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>

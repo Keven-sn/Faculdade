@@ -1,0 +1,262 @@
+/* Resetando margens e preenchimentos */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    padding-bottom: 50px; /* Espaço para o rodapé fixo */
+}
+
+/* Cabeçalho */
+header {
+    background-color: #003d03;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header .logo h1 {
+    font-size: 2.5em;
+    margin: 0;
+    letter-spacing: 2px; /* Espaçamento para tornar o título mais elegante */
+}
+
+/* Seção de Produtos */
+.produtos {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.produto {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.produto:hover {
+    transform: translateY(-8px); /* Aumenta a animação */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.produto img {
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.produto h3 {
+    font-size: 1.5em;
+    margin: 15px 0;
+    color: #333;
+    font-weight: 600;
+}
+
+.produto p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.preco {
+    font-size: 1.2em;
+    color: #4CAF50;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Botão */
+button {
+    padding: 12px 25px;
+    background-color: #003d03fa;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #00aa00; /* Cor mais clara para o hover */
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra mais suave no hover */
+}
+
+/* Rodapé */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 10;
+}
+
+footer p {
+    font-size: 0.9em;
+}
+
+/* Responsividade */
+@media screen and (max-width: 1024px) {
+    .produtos {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        padding-bottom: 70px; /* Ajuste para rodapé fixo */
+    }
+
+    .produtos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .produto {
+        width: 90%;
+        max-width: 350px; /* Limitar a largura máxima */
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header .logo h1 {
+        font-size: 2em;
+    }
+
+    .produto h3 {
+        font-size: 1.3em;
+    }
+
+    .preco {
+        font-size: 1.1em;
+    }
+}
+
+/* Estilo para o botão Home */
+.home-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.home-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Estilo da caixa de login */
+.login-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-width: 400px; /* Tamanho máximo para a caixa */
+    width: 100%;
+}
+
+.login-container input {
+    margin: 10px 0;
+    padding: 12px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.login-container button {
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+.login-container button:hover {
+    background-color: #45a049;
+}
+
+/* Caixa de pagamento */
+.payment-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 100%;
+    max-width: 400px; /* Limitar a largura */
+}
+
+.payment-container input, .payment-container select {
+    margin: 10px 0;
+    padding: 12px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.payment-container button {
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+.payment-container button:hover {
+    background-color: #45a049;
+}
+
+/* Ajustes para imagens de produtos */
+.product img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
