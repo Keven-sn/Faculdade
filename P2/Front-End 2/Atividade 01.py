@@ -1,19 +1,6 @@
 dados = [
-    (170, 'Masculino'),
-    (180, 'Masculino'),
-    (145, 'Masculino'),
-    (185, 'Masculino'),
-    (190, 'Masculino'),
-    (200, 'Masculino'),
-    (169, 'Masculino'),
-    (178, 'Masculino'),
-    (163, 'Feminino'),
-    (172, 'Feminino'),
-    (162, 'Feminino'),
-    (168, 'Feminino'),
-    (150, 'Feminino'),
-    (175, 'Feminino'),
-    (155, 'Feminino'),
+    (170, 'Masculino'),(180, 'Masculino'),(145, 'Masculino'),(185, 'Masculino'),(190, 'Masculino'),(200, 'Masculino'),(169, 'Masculino'),(178, 'Masculino'),
+    (163, 'Feminino'),(172, 'Feminino'),(162, 'Feminino'),(168, 'Feminino'),(150, 'Feminino'),(175, 'Feminino'),(155, 'Feminino'),
 ]
 
 alturas = [item[0] for item in dados]
