@@ -22,7 +22,8 @@ generos = [item[1] for item in dados]
 maior_altura = max(alturas)
 menor_altura = min(alturas)
 
-alturas_masculinas = [altura for altura, genero in zip(alturas, generos) if genero == 'Masculino']
+alturas_masculinas = [altura for altura, genero in zip(alturas, generos) 
+    if genero == 'Masculino']
 media_altura_masculina = sum(alturas_masculinas) / len(alturas_masculinas) if alturas_masculinas else 0
 
 num_feminino = generos.count('Feminino')
