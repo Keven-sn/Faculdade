@@ -10,7 +10,7 @@ const alunos = [
     { nome: "Gustavo Henrique", notas: [8, 7.5, 5], curso: "Sistemas para Internet" }
   ];
 
-  function imprimirAlunosComMediaAlta(alunos) {
+  function imprimirMediaAlta(alunos) {
     alunos.forEach(aluno => {
       const soma = aluno.notas.reduce((total, nota) => total + nota, 0);
       const media = soma / aluno.notas.length;
@@ -24,4 +24,4 @@ const alunos = [
     });
   }
 
-  imprimirAlunosComMediaAlta(alunos);
+  imprimirMediaAlta(alunos);
