@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Admin</title>
+</head>
+<body>
+  <form id="form-login">
+    <input type="email" id="email" placeholder="E-mail" required />
+    <input type="password" id="senha" placeholder="Senha" required />
+    <button type="submit">Entrar</button>
+  </form>
+  <p id="mensagem-erro" style="color: red;"></p>
+
+  <script src="js/jquery-3.6.4.min.js"></script>
+  <script src="js/api.js"></script>
+  <script>
+    $('#form-login').on('submit', function (e) {
+      e.preventDefault();
+
+      var objLoginSenha = {
+        email: $('#email').val(),
+        senha: $('#senha').val()
+      };
+
+      if (validarUsuario(objLoginSenha)) {
+        window.location.href = 'mensagens.html';
+      } else {
+        $('#mensagem-erro').text('E-mail e Senha inválidos');
+      }
+    });
+  </script>
+</body>
+</html>
