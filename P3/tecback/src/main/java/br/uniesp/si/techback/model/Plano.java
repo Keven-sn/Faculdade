@@ -1,24 +1,33 @@
 package br.uniesp.si.techback.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.*;
+import lombok.*;
+import java.util.UUID;
 
-@Data
+@Getter
+@Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 @Entity
 @Table(name = "planos")
 public class Plano {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue
+    private UUID id;
 
-    @Column(nullable = false, length = 50)
-    private String nome;
+    @Column(nullable = false, unique = true, length = 20)
+    @NotBlank
+    private String codigo;
 
-    @Column(nullable = false)
-    private Double preco;
+    @Column(name = "limite_diario", nullable = false)
+    @Min(1)
+    private int limiteDiario;
+
+    @Column(name = "streams_simultaneos", nullable = false)
+    @Min(1)
+    private int streamsSimultaneos;
 }

@@ -1,44 +1,39 @@
 package br.uniesp.si.techback.controller;
 
-import br.uniesp.si.techback.model.Favorito;
-import br.uniesp.si.techback.repository.FavoritoRepository;
+import br.uniesp.si.techback.model.*;
+import br.uniesp.si.techback.service.FavoritoService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
+import java.util.UUID;
 
 @RestController
-@RequestMapping("/favoritos")
+@RequestMapping("/api/favoritos")
+@RequiredArgsConstructor
 public class FavoritoController {
 
-    private final FavoritoRepository repository;
-
-    public FavoritoController(FavoritoRepository repository) {
-        this.repository = repository;
-    }
-
-    @GetMapping
-    public List<Favorito> listar() {
-        return repository.findAll();
-    }
-
-    @GetMapping("/{id}")
-    public Favorito buscar(@PathVariable Long id) {
-        return repository.findById(id).orElse(null);
-    }
+    private final FavoritoService service;
 
     @PostMapping
-    public Favorito criar(@RequestBody Favorito favorito) {
-        return repository.save(favorito);
+    public ResponseEntity<Favorito> adicionar(@RequestParam UUID usuarioId, @RequestParam UUID conteudoId) {
+        Usuario usuario = new Usuario();
+        usuario.setId(usuarioId);
+        Conteudo conteudo = new Conteudo();
+        conteudo.setId(conteudoId);
+        return ResponseEntity.ok(service.adicionar(usuario, conteudo));
     }
 
-    @PutMapping("/{id}")
-    public Favorito atualizar(@PathVariable Long id, @RequestBody Favorito favorito) {
-        favorito.setId(id);
-        return repository.save(favorito);
+    @DeleteMapping
+    public ResponseEntity<Void> remover(@RequestParam UUID usuarioId, @RequestParam UUID conteudoId) {
+        service.remover(usuarioId, conteudoId);
+        return ResponseEntity.noContent().build();
     }
 
-    @DeleteMapping("/{id}")
-    public void deletar(@PathVariable Long id) {
-        repository.deleteById(id);
+    @GetMapping("/usuario/{usuarioId}")
+    public ResponseEntity<List<Favorito>> listarPorUsuario(@PathVariable UUID usuarioId) {
+        Usuario usuario = new Usuario();
+        usuario.setId(usuarioId);
+        return ResponseEntity.ok(service.listarPorUsuario(usuario));
     }
 }

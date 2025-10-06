@@ -1,21 +1,30 @@
 package br.uniesp.si.techback.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import java.time.LocalDateTime;
 
-@Data
+@Getter
+@Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 @Entity
 @Table(name = "favoritos")
 public class Favorito {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @EmbeddedId
+    private FavoritoId id;
 
-    @Column(nullable = false, length = 100)
-    private String item;
+    @ManyToOne
+    @MapsId("usuarioId")
+    private Usuario usuario;
+
+    @ManyToOne
+    @MapsId("conteudoId")
+    private Conteudo conteudo;
+
+    @Column(name = "criado_em", nullable = false)
+    private LocalDateTime criadoEm = LocalDateTime.now();
 }
