@@ -4,13 +4,15 @@ import br.uniesp.si.techback.dto.favorito.FavoritoCreateDTO;
 import br.uniesp.si.techback.dto.favorito.FavoritoResponseDTO;
 import br.uniesp.si.techback.service.FavoritoService;
 import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/favoritos")
+@RequestMapping("/api/favoritos")
 public class FavoritoController {
 
     private final FavoritoService service;
@@ -20,17 +22,19 @@ public class FavoritoController {
     }
 
     @PostMapping
-    public FavoritoResponseDTO adicionar(@Valid @RequestBody FavoritoCreateDTO dto) {
-        return service.adicionar(dto);
+    public ResponseEntity<FavoritoResponseDTO> adicionar(@Valid @RequestBody FavoritoCreateDTO dto) {
+        FavoritoResponseDTO criado = service.adicionar(dto);
+        return ResponseEntity.created(URI.create("/api/favoritos/" + criado.usuarioId() + "/" + criado.conteudoId())).body(criado);
     }
 
     @DeleteMapping
-    public void remover(@Valid @RequestBody FavoritoCreateDTO dto) {
+    public ResponseEntity<Void> remover(@Valid @RequestBody FavoritoCreateDTO dto) {
         service.remover(dto);
+        return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/{usuarioId}")
-    public List<FavoritoResponseDTO> listar(@PathVariable UUID usuarioId) {
-        return service.listarPorUsuario();
+    @GetMapping("/usuario/{usuarioId}")
+    public ResponseEntity<List<FavoritoResponseDTO>> listarPorUsuario(@PathVariable UUID usuarioId) {
+        return ResponseEntity.ok(service.listarPorUsuario(usuarioId));
     }
 }

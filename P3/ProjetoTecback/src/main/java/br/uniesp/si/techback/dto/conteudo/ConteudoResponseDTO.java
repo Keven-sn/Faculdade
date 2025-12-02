@@ -1,5 +1,7 @@
 package br.uniesp.si.techback.dto.conteudo;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public record ConteudoResponseDTO(
@@ -8,8 +10,10 @@ public record ConteudoResponseDTO(
         String tipo,
         int ano,
         int duracaoMinutos,
-        double relevancia,
+        BigDecimal relevancia,
         String sinopse,
         String trailerUrl,
-        String genero
+        String genero,
+        LocalDateTime criadoEm,
+        LocalDateTime atualizadoEm
 ) {}

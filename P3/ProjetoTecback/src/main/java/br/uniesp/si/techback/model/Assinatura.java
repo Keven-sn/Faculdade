@@ -8,7 +8,6 @@ import java.util.UUID;
 
 @Getter
 @Setter
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -20,16 +19,18 @@ public class Assinatura {
     @GeneratedValue
     private UUID id;
 
-    @ManyToOne
-    @JoinColumn(name = "usuario_id", nullable = false)
-    private Usuario usuario;
+    @Column(name = "usuario_id", nullable = false)
+    private UUID usuarioId;
 
-    @ManyToOne
-    @JoinColumn(name = "plano_id", nullable = false)
-    private Plano plano;
+    @Column(name = "plano_id", nullable = false)
+    private UUID planoId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "metodo_pagamento_id")
+    private MetodoPagamento metodoPagamento;
 
     @Column(nullable = false, length = 20)
-    private String status;
+    private String status; // ATIVA | EM_ATRASO | CANCELADA
 
     @Column(name = "iniciada_em", nullable = false)
     private LocalDateTime iniciadaEm;

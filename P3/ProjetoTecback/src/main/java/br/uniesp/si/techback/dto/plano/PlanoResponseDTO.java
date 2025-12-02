@@ -1,11 +1,16 @@
 package br.uniesp.si.techback.dto.plano;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.UUID;
 
 public record PlanoResponseDTO(
-        Long id,
+        UUID id,
         String nome,
-        BigDecimal precoMensal,
-        Integer resolucaoMax,
-        Integer telasSimultaneas
+        String descricao,
+        BigDecimal valorMensal,
+        String resolucao,
+        Integer dispositivos,
+        LocalDateTime criadoEm,
+        LocalDateTime atualizadoEm
 ) {}

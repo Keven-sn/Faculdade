@@ -1,12 +1,13 @@
 package br.uniesp.si.techback.controller;
 
-import br.uniesp.si.techback.dto.metodo.MetodoPagamentoCreateDTO;
-import br.uniesp.si.techback.dto.metodo.MetodoPagamentoResponseDTO;
+import br.uniesp.si.techback.dto.metodo.*;
 import br.uniesp.si.techback.service.MetodoPagamentoService;
 import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/metodos-pagamento")
@@ -19,28 +20,30 @@ public class MetodoPagamentoController {
     }
 
     @PostMapping
-    public MetodoPagamentoResponseDTO criar(@Valid @RequestBody MetodoPagamentoCreateDTO dto) {
-        return service.criar(dto);
+    public ResponseEntity<MetodoPagamentoResponseDTO> criar(
+            @Valid @RequestBody MetodoPagamentoCreateDTO dto
+    ) {
+        return ResponseEntity.ok(service.criar(dto));
     }
 
-    @GetMapping
-    public List<MetodoPagamentoResponseDTO> listar() {
-        return service.listar();
-    }
-
-    @GetMapping("/{id}")
-    public MetodoPagamentoResponseDTO buscar(@PathVariable Long id) {
-        return service.buscar(id);
+    @GetMapping("/usuario/{usuarioId}")
+    public ResponseEntity<List<MetodoPagamentoResponseDTO>> listarPorUsuario(
+            @PathVariable UUID usuarioId
+    ) {
+        return ResponseEntity.ok(service.listarPorUsuario(usuarioId));
     }
 
     @PutMapping("/{id}")
-    public MetodoPagamentoResponseDTO atualizar(@PathVariable Long id,
-                                                @Valid @RequestBody MetodoPagamentoCreateDTO dto) {
-        return service.atualizar(id, dto);
+    public ResponseEntity<MetodoPagamentoResponseDTO> atualizar(
+            @PathVariable UUID id,
+            @Valid @RequestBody MetodoPagamentoUpdateDTO dto
+    ) {
+        return ResponseEntity.ok(service.atualizar(id, dto));
     }
 
     @DeleteMapping("/{id}")
-    public void deletar(@PathVariable Long id) {
+    public ResponseEntity<Void> deletar(@PathVariable UUID id) {
         service.deletar(id);
+        return ResponseEntity.noContent().build();
     }
 }

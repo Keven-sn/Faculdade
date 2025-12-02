@@ -1,16 +1,8 @@
 package br.uniesp.si.techback.dto.metodo;
 
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import java.util.UUID;
 
-public record MetodoPagamentoCreateDTO(
-
-        UUID usuarioId,
-
-        @NotBlank
-        @Size(max = 20)
-        String tipo,
+public record MetodoPagamentoUpdateDTO(
 
         @Size(max = 100)
         String apelido,
@@ -25,6 +17,8 @@ public record MetodoPagamentoCreateDTO(
         String expiracao,
 
         @Size(max = 120)
-        String chavePix
+        String chavePix,
+
+        Boolean ativo
 
 ) {}
